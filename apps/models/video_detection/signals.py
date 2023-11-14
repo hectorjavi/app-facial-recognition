@@ -5,7 +5,7 @@ import os
 import uuid
 import shutil
 import json
-import ffmpeg
+from moviepy.editor import VideoFileClip
 
 from .models import VideoDetection
 from django.conf import settings
@@ -27,12 +27,8 @@ def directory_files():
 
 
 def convertir_mp4_a_mkv(input_file, output_file):
-    input_path = input_file
-    output_path = output_file
-    
-    ffmpeg.input(input_path).output(output_path).run()
-
-
+    clip = VideoFileClip(input_file)
+    clip.write_videofile(output_file, codec="libx264", audio_codec="aac", temp_audiofile="temp-audio.m4a", remove_temp=True, preset="medium", ffmpeg_params=["-crf", "23"])
 
 
 def video_detection_create(video_detection: VideoDetection, base_path):
