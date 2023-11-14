@@ -1,0 +1,2 @@
+[tool.black]
+multi-line-output = 1
