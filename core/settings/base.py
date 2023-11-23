@@ -105,10 +105,6 @@ AUTH_USER_MODEL = "user.User"
 WSGI_APPLICATION = "core.wsgi.application"
 
 
-# DBBACKUP_FILENAME_TEMPLATE = '{datetime}.sql'
-# DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
-# DBBACKUP_STORAGE_OPTIONS = {'location': BASE_DIR / 'backup'}
-
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
