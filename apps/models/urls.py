@@ -6,5 +6,4 @@ urlpatterns = [
     path("", include("apps.models.work_environment.urls")),
     path("", include("apps.models.ia_model.urls")),
     path("", include("apps.models.video_detection.urls")),
-    path("", include("apps.models.subscription.urls")),
 ]

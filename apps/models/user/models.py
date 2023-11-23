@@ -2,7 +2,6 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 from apps.models import base_model
-from apps.models.subscription import models as subscription
 
 NAME_MODEL_ES = "Usuario"
 
@@ -31,14 +30,7 @@ class User(AbstractUser, base_model.BaseModelInfo):
         help_text="E-mail del usuario.",
         verbose_name="E-mail",
     )
-    subscription = models.ForeignKey(
-        subscription.Subscription,
-        on_delete=models.SET_NULL,
-        related_name="subscription_user",
-        verbose_name=subscription.NAME_MODEL_ES,
-        null=True,
-        blank=True,
-    )
+
     # USERNAME_FIELD = 'email'
     # REQUIRED_FIELDS = []
 

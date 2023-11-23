@@ -30,12 +30,12 @@ BASE_APPS = [
 ]
 
 LOCAL_APPS = [
-    "apps.models.subscription",
     "apps.models.user",
     "apps.models.work_environment",
     "apps.models.video",
     "apps.models.ia_model",
     "apps.models.video_detection",
+    "apps.models.project",
 ]
 
 THIRD_APPS = [

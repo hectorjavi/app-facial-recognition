@@ -2,11 +2,7 @@ from django.contrib.auth.hashers import make_password
 from rest_framework import pagination, serializers
 from rest_framework.response import Response
 
-from apps.auths.group.api.serializers import GroupSerializer
-from apps.auths.permission.api.serializers import PermissionSerializer
 from apps.models.user.models import User
-
-from ...subscription.api.serializers import SubscriptionResponseSerializer
 
 
 class CustomPagination(pagination.PageNumberPagination):
@@ -29,10 +25,7 @@ class CustomPagination(pagination.PageNumberPagination):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    # groups = GroupSerializer(many=True)
-    # user_permissions = PermissionSerializer(many=True)
     gender = serializers.CharField(source="get_gender_display")
-    subscription = SubscriptionResponseSerializer()
 
     class Meta:
         model = User
@@ -44,9 +37,6 @@ class UserSerializer(serializers.ModelSerializer):
             "modified",
             "gender",
             "email",
-            "subscription",
-            # "groups",
-            # "user_permissions",
         )
 
 

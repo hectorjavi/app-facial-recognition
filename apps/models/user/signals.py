@@ -4,7 +4,6 @@ from django.db import transaction
 from django.db.models.signals import post_migrate, post_save
 from django.dispatch import receiver
 
-from apps.models.subscription import models as subscription
 
 from .apps import UserConfig
 from .models import User
@@ -31,12 +30,3 @@ def create_default_user():
 def create(sender, **kwargs):
     if isinstance(sender, UserConfig):
         create_default_user()
-
-
-@receiver(post_save, sender=User)
-@transaction.atomic
-def pre_save_user(sender, instance, created, **kwargs):
-    if created:
-        subscription_default = subscription.Subscription.objects.get(order=1)
-        instance.subscription = subscription_default
-        instance.save()
