@@ -1,4 +1,3 @@
-from django.contrib.auth.hashers import make_password
 from rest_framework import pagination, serializers
 from rest_framework.response import Response
 
